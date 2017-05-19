@@ -29,6 +29,5 @@ for i in range(10,len(primes)):
                 break
             index -= 1
         if flag:
-            print(i)
             count += i
 print(count)
