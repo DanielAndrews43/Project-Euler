@@ -7,15 +7,15 @@ def perms(s):
                 yield perm[:i] + [s[0:1]] + perm[i:]
 
 biggest = 0
-number = "9876543210"
+number = "7654321"
 for p in perms(number):
     num = int(''.join(p))
     flag = True
-    for i in range(2, 5):
+    for i in range(2, 1000):
         if num % i == 0:
             flag = False
             break
     if flag:
         if num > biggest:
             biggest = num
-            print(num)
+print(biggest)

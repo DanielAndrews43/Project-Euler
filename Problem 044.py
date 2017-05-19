@@ -1,22 +1,20 @@
 pents = {}
 
-def pent():
-    n = 1
-    while True:
-        yield n*(3*n - 1) / 2
-        n += 1
+
+for n in range(1,10000):
+    pents[n*(3*n - 1) / 2] = True
+    n += 1
 
 foundIt = ''
-p = pent()
-b = 0
-while b < 100000:
-    b = p.next()
-    for i in pents:
-        if pents.get(b - i,False):
+for i in pents:
+    for j in pents:
+        if j < i:
+            continue
+        if pents.get(j-i, False) and pents.get(j+i, False):
             if foundIt:
-                if b-i < foundIt[2]:
-                    foundIt = (b,i,b-i)
+                if j-i < foundIt[2]:
+                    foundIt = (j,i,j-i)
             else:
-                foundIt = (b,i,b-i)
-    pents[b] = True
+                foundIt = (j,i,j-i)
+
 print(foundIt[2])
