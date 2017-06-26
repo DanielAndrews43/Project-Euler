@@ -1,1 +1,2 @@
 p022_names.txt
+p042_words.txt
